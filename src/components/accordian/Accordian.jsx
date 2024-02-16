@@ -6,11 +6,17 @@ import "./style.sass";
 
 export default function Accordian() {
   const [selected, setSelected] = useState(null);
+  const [multiSelection, setMultiSelection] = useState(false);
+  const [multiId, setMultiId] = useState([]);
+
   function handleSingleSeliction(currentId) {
     setSelected(currentId === selected ? null : currentId);
   }
   return (
     <div className="wrapper">
+      <button onClick={() => setMultiSelection(!multiSelection)}>
+        Multi Selection
+      </button>
       <div className="accordian">
         {data && data.length > 0 ? (
           data.map((e) => (
